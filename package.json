@@ -1,0 +1,22 @@
+{
+  "private": true,
+  "name": "@types/zendesk-api",
+  "version": "1.0.9999",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "openapi-typescript": "^6.7.5",
+    "@types/zendesk-api": "workspace:."
+  },
+  "owners": [
+    {
+      "name": "Kay Hennig",
+      "githubUsername": "thefusion21"
+    }
+  ],
+  "scripts": {
+    "update-tickets": "openapi-typescript https://developer.zendesk.com/zendesk/oas.yaml -o ./tickets.d.ts",
+    "update-help-center": "openapi-typescript https://developer.zendesk.com/help_center/oas.yaml -o ./help-center.d.ts",
+    "update-all": "npm run update-tickets && npm run update-help-center"
+  }
+}
