@@ -483,3 +483,105 @@ export interface VoiceSettings {
 export interface VoiceSettingsResponse {
   settings?: VoiceSettings;
 }
+
+// IVRs
+export interface IVR {
+  id?: number;
+  name?: string;
+  menus?: IVRMenu[];
+  phone_number_ids?: number[];
+  phone_number_names?: string[];
+}
+export interface IVRResponse {
+  ivr?: IVR;
+}
+export interface IVRsResponse {
+  ivrs?: IVR[];
+}
+
+export interface IVRMenu {
+  id?: number;
+  name?: string;
+  default?: boolean;
+  greeting_id?: number;
+  routes?: IVRRoute[];
+}
+export interface IVRMenuResponse {
+  ivr_menu?: IVRMenu;
+}
+export interface IVRMenusResponse {
+  ivr_menus?: IVRMenu[];
+}
+
+export interface IVRRoute {
+  action?: string;
+  greeting?: number | string | null;
+  id?: number;
+  keypress?: string;
+  options_text?: string;
+  options?: {
+    group_ids?: number[];
+    menu_id?: number;
+    phone_number?: string;
+  };
+}
+export interface IVRRouteResponse {
+  ivr_route?: IVRRoute;
+}
+
+export interface IVRRoutesResponse {
+  ivr_routes?: IVRRoute[];
+}
+
+// Status
+export interface IncidentData {
+  attributes?: {
+    degradation?: boolean;
+    impact?: string;
+    outage?: boolean;
+    postmortem?: string;
+    resolved_at?: string | null;
+    started_at?: string | null;
+    status?: string;
+    title?: string;
+  },
+  id?: string;
+  relationships?: {
+    incident_services?: {
+      data: {
+        id: string;
+        type: string;
+      }[];
+    }
+    incident_updates?: {
+      data: {
+        id: string;
+        type: string;
+      }[];
+    }
+  }
+}
+export interface ActiveIncidentIncludes {
+  attributes?: {
+    created_at?: string;
+    description?: string;
+  },
+  id?: string;
+  type?: string;
+  relationships?: {
+    service: {
+      data: {
+        id: string;
+        type: string;
+      }
+    }
+  }
+}
+export interface IncidentResponse {
+  data?: IncidentData;
+  included?: ActiveIncidentIncludes[];
+}
+export interface IncidentsResponse {
+  data?: IncidentData[];
+  included?: ActiveIncidentIncludes[];
+}
