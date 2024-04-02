@@ -371,3 +371,115 @@ export interface Availability {
 export interface AvailabilityResponse {
   availability?: Availability;
 }
+
+// Greetings
+export interface Greeting {
+  
+}
+export interface GreetingResponse {
+  greeting?: Greeting;
+}
+export interface GreetingsResponse {
+  greetings?: Greeting[];
+}
+
+// Stats
+export interface AccountOverview {
+  average_call_duration?: number;
+  average_callback_wait_time?: number;
+  average_hold_time?: number;
+  average_queue_wait_time?: number;
+  average_time_to_answer?: number;
+  average_wrap_up_time?: number;
+  max_calls_waiting?: number;
+  max_queue_wait_time?: number;
+  total_call_duration?: number;
+  total_callback_calls?: number;
+  total_calls?: number;
+  total_calls_abandoned_in_queue?: number;
+  total_calls_outside_business_hours?: number;
+  total_calls_with_exceeded_queue_wait_time?: number;
+  total_calls_with_requested_voicemail?: number;
+  total_embeddable_callback_calls?: number;
+  total_hold_time?: number;
+  total_inbound_calls?: number;
+  total_outbound_calls?: number;
+  total_textback_requests?: number;
+  total_voicemails?: number;
+  total_wrap_up_time?: number;
+
+}
+export interface AccountOverviewResponse {
+  account_overview?: AccountOverview;
+}
+
+export interface AgentActivity {
+  agent_id?: number;
+  available_time?: number;
+  avatar_url?: string;
+  calls_accepted?: number;
+  calls_denied?: number;
+  calls_missed?: number;
+  forwarding_number?: string;
+  name?: string;
+  online_time?: number;
+  total_call_duration?: number;
+  total_talk_time?: number;
+  total_wrap_up_time?: number;
+  transfers_only_time?: number;
+  via?: string;
+}
+export interface AgentActivitiesResponse {
+  agents_activity?: AgentActivity;
+}
+
+export interface CurrentQueueActivity {
+  agents_online?: number;
+  average_wait_time?: number;
+  callbacvks_waiting?: number;
+  calls_waiting?: number;
+  embeddable_callbacks_waiting?: number;
+  longest_wait_time?: number;
+}
+export interface CurrentQueueActivityResponse {
+  current_queue_activity?: CurrentQueueActivity;
+}
+
+// Addresses
+export interface Address {
+  city?: string;
+  country_code?: string;
+  id?: number;
+  name?: string;
+  provider_reference?: string;
+  province?: string;
+  state?: string | null;
+  street?: string;
+  zip?: string | null;
+}
+export interface AddressResponse {
+  address?: Address;
+}
+export interface AddressesResponse {
+  addresses?: Address[];
+}
+
+// Voice Settings
+export interface VoiceSettings {
+  agent_confirmation_when_forwarding?: boolean;
+  agent_wrap_up_after_calls?: boolean;
+  maximum_queue_size?: number;
+  maximum_queue_wait_time?: number;
+  only_during_business_hours?: boolean;
+  recordings_public?: boolean;
+  supported_locales: {
+    id?: string;
+    name?: string;
+  }[];
+  voice?: boolean;
+  voice_ai_display_transcript?: boolean;
+  voice_ai_enabled?: boolean;
+}
+export interface VoiceSettingsResponse {
+  settings?: VoiceSettings;
+}
